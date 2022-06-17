@@ -2,20 +2,14 @@ package org.testing.spring.data.jpa.repository.custom;
 
 import org.hibernate.Session;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-@Repository
-@Transactional(
-        readOnly = true
-)
+
 public class CustomJPARepositoryImpl<T, ID> extends SimpleJpaRepository<T, ID> implements CustomJPARepository<T, ID> {
 
     private Class<T> domainClass;
